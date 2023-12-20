@@ -49,34 +49,6 @@ body[data-theme='dark'] {
     --cs-border: 1px solid var(--cs-border-color, lightgray);
 }
 
-@font-face {
-    font-family: 'Anonymous Pro';
-    font-weight: normal;
-    font-style: normal;
-    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Anonymous Pro';
-    font-weight: bold;
-    font-style: normal;
-    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'Anonymous Pro';
-    font-weight: normal;
-    font-style: italic;
-    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Italic.ttf');
-}
-
-@font-face {
-    font-family: 'Anonymous Pro';
-    font-weight: bold;
-    font-style: italic;
-    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-BoldItalic.ttf');
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -241,7 +213,7 @@ body {
 h2 {
     margin: 0 0 3rem;
 
-    font-family: 'Anonymous Pro', 'Monaco', 'Lucida Console', 'Times New Roman';
+    font-family: 'Monaco', 'Lucida Console', 'Georgia', 'Times New Roman';
     font-size: calc(2.5rem + 2dvw);
     font-style: normal;
     font-weight: bold;
