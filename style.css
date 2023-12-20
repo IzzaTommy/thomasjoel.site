@@ -1,0 +1,591 @@
+:root {
+    /* cs stands for custom */
+    --cs-primary-color: #F2F2F2;
+    --cs-secondary-color: #303030;
+    --cs-tertiary-color: color(display-p3 0.26043 0.38786 0.49537);
+    --cs-quarternary-color: #F2F2F2;
+    
+    --cs-primary-text-color: #F2F2F2;
+    --cs-secondary-text-color: #303030;
+
+    --cs-hover-color: #D2D2D2;
+
+    --cs-border-color: #D2D2D2;
+
+    --cs-mask-color: rgba(0, 0, 0, 0.8);
+
+    --cs-card-width: 325px;
+    --cs-pict-width: 400px;
+    --cs-section-padding: 4rem 6dvw;
+    --cs-text-padding: 16px;
+    --cs-border: 1px solid var(--cs-border-color, lightgray);
+    --cs-border-radius: 1rem;
+    --cs-col-gap: 4dvw;
+    --cs-row-gap: calc(2dvh + 1dvw);
+
+    --cs-md-font-size: 1.1rem;
+    --cs-lg-font-size: 1.5rem;
+    --cs-ln-height: 2.2rem;
+    --cs-compact-ln-height: 1.5rem;
+    --cs-nav-item-height: 32px;
+}
+
+/* dark mode variables will replace the ones previously defined */
+body[data-theme='dark'] {
+    --cs-primary-color: #303030;
+    --cs-secondary-color: #F2F2F2;
+    --cs-tertiary-color: #202020;
+    --cs-quarternary-color: #404040;
+
+    --cs-primary-text-color: #ECE0D1;
+    --cs-secondary-text-color: #ECE0D1;
+
+    --cs-hover-color: #202020;
+
+    --cs-border-color: transparent;
+
+    --cs-mask-color: rgba(0, 0, 0, 0.8);
+
+    --cs-border: 1px solid var(--cs-border-color, lightgray);
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: normal;
+    font-style: normal;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: bold;
+    font-style: normal;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: normal;
+    font-style: italic;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: bold;
+    font-style: italic;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-BoldItalic.ttf');
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* NAV BAR */
+ @media screen and (width < 600px) {
+    nav {
+        padding: 10px;
+    }
+    
+    nav > input#menu-btn:checked ~ ul {
+        display: flex;
+    }
+
+    nav > label[for="menu-btn"] {
+        display: block;
+    }
+
+    nav > ul {
+        display: none;
+        flex-flow: column nowrap;
+        row-gap: 4dvh;
+        width: 100%;
+        padding: 2dvh 0;
+    }
+}
+
+@media screen and (width >= 600px) {
+    nav {
+        padding: 10px 2.5dvw 10px 10px;
+    }
+
+    nav > label[for="menu-btn"] {
+        display: none;
+    }
+
+    nav > ul {
+        column-gap: 5dvw;
+        display: flex;
+        flex-flow: row nowrap;
+        height: var(--cs-nav-item-height);
+        padding: 0;
+    }
+}
+
+nav {
+    position: fixed;
+    
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    border-bottom: 0.25rem solid var(--cs-secondary-color, black);
+
+    background-color: var(--cs-primary-color, white);
+    
+    z-index: 1;
+}
+
+nav > a {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    height: var(--cs-nav-item-height);
+
+    color: var(--cs-secondary-text-color, black);
+
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+nav > input:checked ~ label > svg {
+    background-color: var(--cs-quarternary-color, lightgray);
+}
+
+nav > input:hover ~ label > svg {
+    background-color: var(--cs-hover-color, lightgray);
+}
+
+nav > input {
+    display: none;
+}
+
+nav > label {
+    line-height: 0;
+}
+
+nav > label[for="theme-btn"] {
+    margin: 0 5dvw 0 auto;
+    visibility: hidden;
+}
+
+nav > ul {
+    align-items: center;
+    margin: 0;
+
+    list-style-type: none;
+}
+
+nav > ul a {
+    color: var(--cs-secondary-text-color, black);
+
+    font-size: 1rem;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: transparent;
+    
+    transition: text-decoration-color 0.25s ease-in-out;
+}
+
+nav > ul a:hover {
+    text-decoration-color: var(--cs-secondary-text-color, black);
+}
+
+header svg {
+    box-sizing: border-box;
+    width: var(--cs-nav-item-height);
+    height: var(--cs-nav-item-height);
+    border: var(--cs-border);
+    border-radius: 0.5rem;
+    padding: 4px;
+}
+
+svg {
+    fill: var(--cs-secondary-text-color);
+}
+
+/* GENERAL */
+html {
+    font-family: 'Verdana', 'Arial', 'Helvetica', 'Times New Roman';
+
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+h2 {
+    margin: 0 0 3rem;
+
+    font-family: 'Anonymous Pro', 'Monaco', 'Lucida Console', 'Times New Roman';
+    font-size: calc(2.5rem + 2dvw);
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    margin: 0;
+
+    color: var(--cs-secondary-text-color);
+
+    font-style: normal;
+    font-weight: normal;
+}
+
+#aboutme, #skills, #hw4 {
+    background-color: var(--cs-tertiary-color, cornflowerblue);
+    color: var(--cs-primary-text-color, white);
+}
+
+#projects, #resume, footer {
+    background-color: var(--cs-primary-color, white);
+    color: var(--cs-secondary-text-color, black);
+}
+
+section {
+    padding: var(--cs-section-padding);
+}
+
+section > div {
+    align-items: stretch;
+    display: flex;
+    column-gap: var(--cs-col-gap);
+    flex-flow: row wrap;
+    justify-content: center;
+    row-gap: var(--cs-row-gap);
+
+    animation: fadeIn 1s;
+    z-index: 0;
+}
+
+#aboutme picture {
+    width: var(--cs-pict-width);
+}
+
+#aboutme img {
+    object-fit: cover;
+    object-position: center center;
+
+    box-sizing: border-box;
+    width: 100%;
+    border: calc(0.3rem + 0.1dvw) solid var(--cs-quarternary-color, white);
+    border-radius: 50%;
+}
+
+#aboutme p {
+    align-self: center;
+    box-sizing: border-box;
+    width: 600px;
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+    padding: var(--cs-text-padding);
+    margin: 0;
+
+    font-size: var(--cs-md-font-size);
+    line-height: var(--cs-ln-height);
+
+    background-color: var(--cs-quarternary-color, white);
+    color: var(--cs-secondary-text-color, black);
+}
+
+/* PROJECTS SECTION */
+#projects > div > div {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    width: var(--cs-card-width);
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+}
+
+#projects h3 {
+    padding: var(--cs-text-padding);
+    border-radius: var(--cs-border-radius) var(--cs-border-radius) 0 0;
+
+    background-color: var(--cs-quarternary-color, white);
+
+    font-size: var(--cs-md-font-size);
+}
+
+#projects p {
+    flex-grow: 1;
+    padding: var(--cs-text-padding);
+    border-radius: 0 0 var(--cs-border-radius) var(--cs-border-radius);
+    margin: 0;
+
+    color: transparent;
+
+    line-height: var(--cs-compact-ln-height);
+}
+
+#proj-1 p {
+    background-image: url('/assets/previews/CSE_134B_Website_Preview.webp');
+    background-size: cover;
+    background-position: top center;
+}
+
+#proj-1:hover p {
+    color: var(--cs-primary-text-color, white);
+    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_134B_Website_Preview.webp');
+}
+
+#proj-2 p {
+    background-image: url('/assets/previews/CSE_135_Website_Preview.webp');
+    background-size: cover;
+
+}
+
+#proj-2:hover p {
+    color: var(--cs-primary-text-color, white);
+    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_135_Website_Preview.webp');
+}
+
+#proj-3 p {
+    background-image: url('/assets/previews/RoommateHub_Preview.webp');
+    background-size: cover;
+    background-position: top center;
+}
+
+#proj-3:hover p {
+    color: var(--cs-primary-text-color, white);
+    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/RoommateHub_Preview.webp');
+}
+
+#proj-4 p {
+    background-color: color-mix(in srgb, #9acd32 60%, white);
+}
+
+#proj-4:hover p {
+    color: var(--cs-primary-text-color, white);
+    background-color: var(--cs-mask-color, black);
+}
+
+#proj-5 p {
+    background-color: color-mix(in srgb, #fa8072 60%, white);
+}
+
+#proj-5:hover p {
+    color: var(--cs-primary-text-color, white);
+    background-color: var(--cs-mask-color, black);
+}
+
+/* SKILLS SECTION */
+#skills > div > div {
+    box-sizing: border-box;
+    width: var(--cs-card-width);
+    padding: var(--cs-text-padding);
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+    margin: 0;
+    
+    background-color: var(--cs-quarternary-color, white);
+    
+    text-align: center;
+}
+
+#skills svg {
+    width: 100px;
+    height: 100px;
+}
+
+#skills h3 {
+    margin: var(--cs-text-padding) 0;
+
+    font-size: var(--cs-lg-font-size);
+}
+
+#skills p {
+    color: var(--cs-secondary-text-color, black);
+
+    line-height: var(--cs-compact-ln-height);
+}
+
+/* EXAMPLE RESUME SECTION */
+#resume picture {
+    width: var(--cs-pict-width);
+}
+
+#resume img {
+    box-sizing: border-box;
+    width: 100%;
+    border: var(--cs-border);
+}
+
+#resume a {
+    align-self: center;
+    
+    padding: var(--cs-text-padding);
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+
+    background-color: var(--cs-quarternary-color, white);
+    color: var(--cs-secondary-text-color, black);
+
+    text-decoration: none;
+}
+
+#resume a:hover {
+    background-color: var(--cs-hover-color, lightgray);
+}
+
+/* FOOTER SECTION */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer p:nth-child(1) {
+    margin: 0;
+}
+
+footer p:has(+ a) {
+    margin: 1rem 0;
+}
+
+footer a {
+    color: var(--cs-secondary-text-color, black);
+}
+
+/* --------------------------- NEW FOR HW4 ---------------------------- */
+
+/* FORM SECTION */
+
+#hw4 form {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1rem;
+    min-width: 0;
+    padding: var(--cs-text-padding);
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+    
+    background-color: var(--cs-primary-color, white);
+}
+
+#hw4 label {
+    display: block;
+    margin: 0 0 8px;
+
+    color: var(--cs-secondary-text-color, black);
+
+    text-align: center;
+}
+
+#hw4 input {
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    width: 200px;
+    padding: 8px;
+    border: var(--cs-border);
+    border-radius: 0.25rem;
+    outline: none;
+    margin: 0 auto;
+
+    background-color: white
+}
+
+#hw4 textarea {
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    width: 300px;
+    padding: 8px;
+    border: var(--cs-border);
+    border-radius: 0.25rem;
+    outline: none;
+    margin: 0 auto;
+    resize: none;
+    
+    background-color: white;
+    
+    font-family: 'Verdana', 'Arial', 'Helvetica', 'Times New Roman';
+}
+
+#hw4 output {
+    display: block;
+    padding: 4px 0 0;
+    margin: 0;
+
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+#hw4 button {
+    max-width: 100%;
+    width: 100px;
+    padding: var(--cs-text-padding);
+    border: var(--cs-border);
+    border-radius: var(--cs-border-radius);
+    margin: 0 auto;
+
+    background-color: var(--cs-quarternary-color, white);
+    color: var(--cs-secondary-text-color, black);
+
+    font-size:1.1rem;
+    text-decoration: none;
+}
+
+#hw4 label:has(+ input:required)::after, #hw4 label:has(+ textarea:required)::after {
+    content: ' *';
+    color: red;
+}
+
+#hw4 input:focus, #hw4 textarea:focus{
+    border-color: var(--cs-secondary-text-color);
+    outline: 1px solid var(--cs-secondary-text-color);
+}
+
+#hw4 input:valid, #hw4 textarea:valid {
+    background-color:rgb(194, 247, 193);
+}
+
+#hw4 input:user-invalid, #hw4 textarea:user-invalid {
+    background-color:rgb(247, 193, 193);
+}
+
+#hw4 input:placeholder-shown, #hw4 textarea:placeholder-shown {
+    font-style: italic;
+}
+
+#hw4 output:nth-of-type(1) {
+    color: cornflowerblue;
+}
+
+#hw4 output:nth-of-type(2) {
+    color: red;
+    opacity: 0;
+}
+
+#hw4 input:user-invalid + output + output, #hw4 textarea:user-invalid + output + output {
+    animation: fadeOut 4s;
+}
+
+#hw4 button:hover {
+    background-color: var(--cs-hover-color, lightgray);
+}
