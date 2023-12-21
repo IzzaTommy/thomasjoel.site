@@ -2,7 +2,7 @@
     /* cs stands for custom */
     --cs-primary-color: #F2F2F2;
     --cs-secondary-color: #303030;
-    --cs-tertiary-color: color(display-p3 0.26043 0.38786 0.49537);
+    --cs-tertiary-color: #386481;
     --cs-quarternary-color: #F2F2F2;
     
     --cs-primary-text-color: #F2F2F2;
@@ -47,6 +47,37 @@ body[data-theme='dark'] {
     --cs-mask-color: rgba(0, 0, 0, 0.8);
 
     --cs-border: 1px solid var(--cs-border-color, lightgray);
+}
+
+@media (max-aspect-ratio: 23/10) {
+    #landing {
+        height: 110dvh;
+    }
+}
+
+/* atypical extra-wide screens will use these*/
+@media (not (max-aspect-ratio: 23/10)) and (min-width: 400px) {
+    #landing {
+        height: 350px;
+    }
+}
+
+@media (not (max-aspect-ratio: 23/10)) and (min-width: 700px) {
+    #landing {
+        height: 600px;
+    }
+}
+
+@media (not (max-aspect-ratio: 23/10)) and (min-width: 1200px) {
+    #landing {
+        height: 850px;
+    }
+}
+
+@media (not (max-aspect-ratio: 23/10)) and (min-width: 1700px) {
+    #landing {
+        height: 1100px;
+    }
 }
 
 @keyframes fadeIn {
@@ -229,7 +260,12 @@ h3 {
     font-weight: normal;
 }
 
-#aboutme, #skills, #hw4 {
+#aboutme {
+    background-image: linear-gradient(180deg, white, var(--cs-tertiary-color));
+    color: var(--cs-primary-text-color, white);
+}
+
+#skills, #hw4 {
     background-color: var(--cs-tertiary-color, cornflowerblue);
     color: var(--cs-primary-text-color, white);
 }
@@ -253,6 +289,19 @@ section > div {
 
     animation: fadeIn 1s;
     z-index: 0;
+}
+
+#landing {
+    background-image: url('/assets/backgrounds/Blue\ Firewatch.webp');
+    background-size: cover;
+    background-position: center 1%;
+    /* height: calc(110dvh + calc(100dvw / 20) + 0px); */
+    color: var(--cs-primary-text-color, white);
+    background-origin: content-box;
+    padding: calc(var(--cs-nav-item-height) + 0.25rem + 20px) 0 0;
+    background-repeat: no-repeat;
+    /* padding-top: 0; */
+    /* border-top: 200px solid black; */
 }
 
 #aboutme picture {
