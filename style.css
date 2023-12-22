@@ -4,30 +4,31 @@
     --cs-secondary-color: #303030;
     --cs-tertiary-color: #386481;
     --cs-quarternary-color: #F2F2F2;
+    --cs-transition-color: #0E1B23;
     
     --cs-primary-text-color: #F2F2F2;
     --cs-secondary-text-color: #303030;
 
     --cs-hover-color: #D2D2D2;
-
     --cs-border-color: #D2D2D2;
 
     --cs-mask-color: rgba(0, 0, 0, 0.8);
 
     --cs-card-width: 325px;
     --cs-pict-width: 400px;
-    --cs-section-padding: 6rem 5dvw;
+    --cs-section-padding: 6rem 5vw;
     --cs-text-padding: 16px;
     --cs-border: 1px solid var(--cs-border-color, lightgray);
     --cs-border-radius: 1rem;
-    --cs-col-gap: 4dvw;
-    --cs-row-gap: calc(2dvh + 1dvw);
+    --cs-col-gap: 4vw;
+    --cs-row-gap: calc(2vh + 1vw);
+    --cs-svg-length: 100px;
 
     --cs-md-font-size: 1.1rem;
     --cs-lg-font-size: 1.5rem;
-    --cs-ln-height: 2.2rem;
-    --cs-compact-ln-height: 1.5rem;
-    --cs-nav-item-height: 32px;
+    --cs-md-ln-height: 1.5rem;
+    --cs-lg-ln-height: 2.2rem;
+    --cs-nav-item-length: 32px;
 
     --cs-landing-background: url('/assets/backgrounds/Blue Firewatch.webp');
 }
@@ -36,17 +37,15 @@
 body[data-theme='dark'] {
     --cs-primary-color: #303030;
     --cs-secondary-color: #F2F2F2;
-    --cs-tertiary-color: #202020;
+    --cs-tertiary-color: #252525;
     --cs-quarternary-color: #404040;
+    --cs-transition-color: #181818;
 
-    --cs-primary-text-color: #ECE0D1;
-    --cs-secondary-text-color: #ECE0D1;
+    --cs-primary-text-color: #D0D0D0;
+    --cs-secondary-text-color: #D0D0D0;
 
     --cs-hover-color: #202020;
-
     --cs-border-color: transparent;
-
-    --cs-mask-color: rgba(0, 0, 0, 0.8);
 
     --cs-border: 1px solid var(--cs-border-color, lightgray);
 
@@ -66,20 +65,6 @@ body[data-theme='dark'] {
     }
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
 /* LANDING PAGE MEDIA QUERIES*/
 @media (max-aspect-ratio: 23/10) {
     #landing {
@@ -94,7 +79,7 @@ body[data-theme='dark'] {
 }
 
 /* NAV BAR MEDIA QUERIES */
- @media screen and (width < 600px) {
+@media screen and (width < 600px) {
     header > nav {
         padding: 10px;
     }
@@ -106,7 +91,7 @@ body[data-theme='dark'] {
     header > nav > ul {
         display: none;
         flex-flow: column nowrap;
-        row-gap: 6dvh;
+        row-gap: 6vh;
         padding: 0;
         width: 100%;
     }
@@ -114,7 +99,7 @@ body[data-theme='dark'] {
 
 @media screen and (width >= 600px) {
     header > nav {
-        padding: 10px 2.5dvw 10px 10px;
+        padding: 10px 2.5vw 10px 10px;
     }
 
     header > nav > label[for="menu-btn"] {
@@ -122,97 +107,19 @@ body[data-theme='dark'] {
     }
 
     header > nav > ul {
-        column-gap: 5dvw;
+        column-gap: 5vw;
         display: flex;
         flex-flow: row nowrap;
-        height: var(--cs-nav-item-height);
+        height: var(--cs-nav-item-length);
         padding: 0;
     }
 }
 
-header > nav {
-    position: fixed;
-    
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
-    row-gap: 6dvh;
-    width: 100%;
-    border-bottom: 0.25rem solid var(--cs-secondary-color, black);
-
-    background-color: var(--cs-primary-color, white);
-    
-    z-index: 1;
-}
-
-header > nav > a {
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-    height: var(--cs-nav-item-height);
-
-    color: var(--cs-secondary-text-color, black);
-
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-/*???*/
-header > nav > input:checked ~ label > svg {
-    background-color: var(--cs-quarternary-color, lightgray);
-}
-
-header > nav > input:hover ~ label > svg {
-    background-color: var(--cs-hover-color, lightgray);
-}
-
-header > nav > input {
-    display: none;
-}
-
-header > nav > label {
-    line-height: 0;
-}
-
-header > nav > label[for="theme-btn"] {
-    margin: 0 5dvw 0 auto;
-    visibility: hidden;
-}
-
-header > nav > ul {
-    align-items: center;
-    margin: 0;
-
-    list-style-type: none;
-}
-
-header > nav > ul > li > a {
-    color: var(--cs-secondary-text-color, black);
-
-    font-size: 1rem;
-    text-decoration: underline;
-    text-underline-position: under;
-    text-decoration-color: transparent;
-    
-    transition: text-decoration-color 0.25s ease-in-out;
-}
-
-header > nav > ul > li > a:hover {
-    text-decoration-color: var(--cs-secondary-text-color, black);
-}
-
-header > nav > label > svg {
-    box-sizing: border-box;
-    width: var(--cs-nav-item-height);
-    height: var(--cs-nav-item-height);
-    border: var(--cs-border);
-    border-radius: 0.5rem;
-    padding: 4px;
-}
-
-svg {
-    fill: var(--cs-secondary-text-color);
+/* RESUME MEDIA QUERIES */
+@media (max-width: 582px) {
+    #resume > div > div {
+        flex-direction: row;
+    }
 }
 
 /* GENERAL */
@@ -246,7 +153,7 @@ h2 {
     margin: 0 0 3rem;
 
     font-family: 'Monaco', 'Lucida Console', 'Georgia', 'Times New Roman';
-    font-size: calc(2.5rem + 2dvw);
+    font-size: calc(2.5rem + 2vw);
     font-style: normal;
     font-weight: bold;
     text-align: center;
@@ -261,8 +168,12 @@ h3 {
     font-weight: normal;
 }
 
+svg {
+    fill: var(--cs-secondary-text-color);
+}
+
 #landing {
-    padding: calc(var(--cs-nav-item-height) + 0.25rem + 20px) 0 0;
+    padding: calc(var(--cs-nav-item-length) + 0.25rem + 20px) 0 0;
     background-image: var(--cs-landing-background);
     background-origin: content-box;
     background-position: center center;
@@ -272,18 +183,106 @@ h3 {
 }
 
 #aboutme {
-    background-image: linear-gradient(180deg, #0E1B23, var(--cs-tertiary-color));
+    background-image: linear-gradient(180deg, var(--cs-transition-color), var(--cs-tertiary-color, cornflowerblue));
     color: var(--cs-primary-text-color, white);
 }
 
-#skills {
+#skills, footer {
     background-color: var(--cs-tertiary-color, cornflowerblue);
     color: var(--cs-primary-text-color, white);
 }
 
-#projects, #resume, footer {
+#projects, #resume {
     background-color: var(--cs-primary-color, white);
     color: var(--cs-secondary-text-color, black);
+}
+
+/* HEADER */
+header > nav {
+    position: fixed;
+    
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 6vh;
+    width: 100%;
+    border-bottom: 0.25rem solid var(--cs-secondary-color, black);
+
+    background-color: var(--cs-primary-color, white);
+    
+    z-index: 1;
+}
+
+header > nav > a {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    height: var(--cs-nav-item-length);
+
+    color: var(--cs-secondary-text-color, black);
+
+    font-size: var(--cs-md-font-size);
+    text-decoration: none;
+}
+
+header > nav > input {
+    display: none;
+}
+
+header > nav > label {
+    line-height: 0;
+}
+
+header > nav > label[for="theme-btn"] {
+    margin: 0 5vw 0 auto;
+    visibility: hidden;
+}
+
+header > nav > label > svg {
+    box-sizing: border-box;
+    width: var(--cs-nav-item-length);
+    height: var(--cs-nav-item-length);
+    border: var(--cs-border);
+    border-radius: 0.5rem;
+    padding: 4px;
+}
+
+header > nav > input:checked ~ label > svg {
+    background-color: var(--cs-quarternary-color, lightgray);
+}
+
+header > nav > input:hover ~ label > svg {
+    background-color: var(--cs-hover-color, lightgray);
+}
+
+header > nav > ul {
+    align-items: center;
+    margin: 0;
+
+    list-style-type: none;
+}
+
+header > nav > ul > li > a {
+    color: var(--cs-secondary-text-color, black);
+
+    font-size: var(--cs-md-font-size);
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: transparent;
+    
+    transition: text-decoration-color 0.25s ease-in-out;
+}
+
+header > nav > ul > li > a:hover {
+    text-decoration-color: var(--cs-secondary-text-color, black);
+}
+
+/* LANDING SECTION */
+#landing > h2 {
+    margin: 45vh 0 0;
+
+    animation: fadeIn 1s;
 }
 
 /* ABOUTME SECTION */
@@ -297,7 +296,7 @@ h3 {
 
     box-sizing: border-box;
     width: 100%;
-    border: calc(0.3rem + 0.1dvw) solid var(--cs-quarternary-color, white);
+    border: calc(0.3rem + 0.1vw) solid var(--cs-quarternary-color, white);
     border-radius: 50%;
 }
 
@@ -310,11 +309,11 @@ h3 {
     padding: var(--cs-text-padding);
     margin: 0;
 
-    font-size: var(--cs-md-font-size);
-    line-height: var(--cs-ln-height);
-
     background-color: var(--cs-quarternary-color, white);
     color: var(--cs-secondary-text-color, black);
+
+    font-size: var(--cs-md-font-size);
+    line-height: var(--cs-lg-ln-height);
 }
 
 /* PROJECTS SECTION */
@@ -344,7 +343,7 @@ h3 {
 
     color: transparent;
 
-    line-height: var(--cs-compact-ln-height);
+    line-height: var(--cs-md-ln-height);
 }
 
 #projects > div > #proj-1 > p {
@@ -394,12 +393,13 @@ h3 {
 }
 
 #skills > div > div > svg {
-    width: 100px;
-    height: 100px;
+    width: var(--cs-svg-length);
+    height: var(--cs-svg-length);
+    margin: 0 0 var(--cs-text-padding);
 }
 
 #skills > div > div > h3 {
-    margin: var(--cs-text-padding) 0;
+    margin: 0 0 var(--cs-text-padding);
 
     font-size: var(--cs-lg-font-size);
 }
@@ -409,21 +409,30 @@ h3 {
 
     color: var(--cs-secondary-text-color, black);
 
-    line-height: var(--cs-compact-ln-height);
+    font-size: var(--cs-md-font-size);
+    line-height: var(--cs-md-ln-height);
 }
 
-/* EXAMPLE RESUME SECTION */
-#resume picture {
+/* RESUME SECTION */
+#resume > div > picture {
     width: var(--cs-pict-width);
 }
 
-#resume img {
+#resume > div > picture > img {
     box-sizing: border-box;
     width: 100%;
     border: var(--cs-border);
 }
 
-#resume a {
+#resume > div > div {
+    column-gap: var(--cs-col-gap);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    row-gap: var(--cs-row-gap);
+}
+
+#resume > div > div > a {
     align-self: center;
     box-sizing: border-box;
     width: 100px;
@@ -438,49 +447,34 @@ h3 {
     text-decoration: none;
 }
 
-#resume svg {
-    width: 50px;
-    height: 50px;
-}
-
-#resume a > p {
-    margin: var(--cs-text-padding) 0 0;
-
-    font-size: 1.5rem;
-}
-
-#resume a:hover {
+#resume > div > div > a:hover {
     background-color: var(--cs-hover-color, lightgray);
 }
 
-#resume > div > div {
-    /* align-items: stretch; */
-    column-gap: var(--cs-col-gap);
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    row-gap: var(--cs-row-gap);
+#resume > div > div > a > svg {
+    width: calc(0.5 * var(--cs-svg-length));
+    height: calc(0.5 * var(--cs-svg-length));
 
-    /* animation: fadeIn 1s;
-    z-index: 0; */
+    margin: 0 0 var(--cs-text-padding);
 }
 
-@media (max-width: 582px) {
-    #resume > div > div {
-        flex-direction: row;
-    }
+#resume > div > div > a > p {
+    margin: 0;
+
+    font-size: 1.5rem;
 }
 
 /* FOOTER SECTION */
 footer {
     padding: 2rem 0;
+
     text-align: center;
 }
 
 footer > p {
-    margin: 0 0 1rem 0;
+    margin: 0 0 var(--cs-text-padding);
 }
 
 footer > a {
-    color: var(--cs-secondary-text-color, black);
+    color: var(--cs-primary-text-color, black);
 }
