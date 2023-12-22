@@ -395,33 +395,14 @@ header > nav > ul > li > a:hover {
     height: calc(0.4 * var(--cs-svg-length));
 }
 
-#projects > div > #proj-1 > div {
-    background-image: url('/assets/previews/CSE_134B_Website_Preview.webp');
+#projects > div > div > div {
+    background-image: var(--cs-proj-url);
     background-position: top center;
     background-size: cover;
 }
 
-#projects > div > #proj-1:hover > div {
-    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_134B_Website_Preview.webp');
-}
-
-#projects > div > #proj-2 > div {
-    background-image: url('/assets/previews/CSE_135_Website_Preview.webp');
-    background-size: cover;
-}
-
-#projects > div > #proj-2:hover > div {
-    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_135_Website_Preview.webp');
-}
-
-#projects > div > #proj-3 > div {
-    background-image: url('/assets/previews/RoommateHub_Preview.webp');
-    background-position: top center;
-    background-size: cover;
-}
-
-#projects > div > #proj-3:hover > div {
-    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/RoommateHub_Preview.webp');
+#projects > div > div:hover > div {
+    background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), var(--cs-proj-url);
 }
 
 /* SKILLS SECTION */
