@@ -118,7 +118,13 @@ body[data-theme='dark'] {
 /* RESUME MEDIA QUERIES */
 @media (max-width: 582px) {
     #resume > div > div {
-        flex-direction: row;
+        flex-flow: row nowrap;
+    }
+}
+
+@media (min-width: 583px) {
+    #resume > div > div {
+        flex-flow: column nowrap;
     }
 }
 
@@ -287,6 +293,7 @@ header > nav > ul > li > a:hover {
 
 /* ABOUTME SECTION */
 #aboutme > div > picture {
+    align-self: center;
     width: var(--cs-pict-width);
 }
 
@@ -303,7 +310,7 @@ header > nav > ul > li > a:hover {
 #aboutme > div > p {
     align-self: center;
     box-sizing: border-box;
-    width: 600px;
+    width: 800px;
     border: var(--cs-border);
     border-radius: var(--cs-border-radius);
     padding: var(--cs-text-padding);
@@ -426,8 +433,7 @@ header > nav > ul > li > a:hover {
 
 #resume > div > div {
     column-gap: var(--cs-col-gap);
-    display: flex;
-    flex-flow: column nowrap;
+    display: flex;                                 
     justify-content: center;
     row-gap: var(--cs-row-gap);
 }
