@@ -15,7 +15,7 @@
     <main>
         <header>
             <nav>
-                <a href="/">Thomas Joel</a>
+                <a href="#landing">Thomas Joel</a>
                 
                 <input type="checkbox" id="theme-btn">
                 <label for="theme-btn">
@@ -75,16 +75,6 @@
                     <h3>RoommateHub</h3>
                     <p><b>HTML, CSS, JavaScript</b><br>A web application for organizing bills and responsibilities between living-mates.</p>
                 </div>
-
-                <div id="proj-4">
-                    <h3>Example Project</h3>
-                    <p><b>Tech1, Tech2</b><br>An example project to fill space in this flexbox.</p>
-                </div>
-
-                <div id="proj-5">
-                    <h3>Example Project</h3>
-                    <p><b>Tech1, Tech2</b><br>An example project to fill space in this flexbox.</p>
-                </div>
             </div>
         </section>
 
@@ -127,7 +117,7 @@
         </section>
 
         <section id="resume">
-            <h2>Example Resume</h2>
+            <h2>Resume</h2>
 
             <div>
                 <picture>
@@ -135,46 +125,30 @@
                     <img src="/assets/previews/Resume_Preview.png" alt="Preview of Sourabh Bajaj's Resume.">
                 </picture>
 
-                <a href="/assets/documents/sourabh_bajaj_resume.pdf" target="_blank">Download</a>
+                <!-- <a href="/assets/documents/sourabh_bajaj_resume.pdf" target="_blank">Download</a> -->
+
+                <div>
+                    
+                    <a href="/assets/documents/sourabh_bajaj_resume.pdf" target="_blank">
+                        <svg>
+                            <use href="/assets/icons/file-pdf-solid.svg#file-pdf-solid"></use>
+                        </svg>
+                        <p>.pdf</p>
+                    </a>
+
+                    <a href="/assets/documents/sourabh_bajaj_resume.pdf" target="_blank">
+                        <svg>
+                            <use href="/assets/icons/file-word-solid.svg#file-word-solid"></use>
+                        </svg>
+                        <p>.docx</p>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- <section id="hw4">
-            <h2>HW4 Form</h2>
-
-            <div>
-                <form action="https://httpbin.org/post" method="POST">
-                    <div>
-                        <label for="name">Name</label>
-                        <input id="name" type="text" name="name" placeholder="Johnny Appleseed" required minlength="2" maxlength="40" pattern="[a-zA-Z0-9'\- ]+">
-                        <output for="name">Character Limit: 2-40</output>
-                        <output for="name">Error: Invalid character/length</output>
-                    </div>
-
-                    <div>
-                        <label for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="johnnyapples@domain.com" required minlength="3" maxlength="40">
-                        <output for="email">Character Limit: 3-40</output>
-                        <output for="email">Error: Invalid email</output>
-                    </div>
-
-                    <div>
-                        <label for="comments">Comments</label>
-                        <textarea id="comments" name="comments" placeholder="Comments..." rows="5" required minlength="2" maxlength="250"></textarea>
-                        <output for="comments">Character Limit: 2-250</output>
-                        <output for="comments">Error: Invalid character/length</output>
-                    </div>
-
-                    <input type="hidden" name="possible_bot" value="true">
-            
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-        </section> -->
-
         <footer>
             <p>Page authored by Thomas Joel.</p>
-            <!-- <p>Example Resume courtesy of Sourabh Bajaj, found <a href="https://github.com/sb2nov/resume/tree/master" target="_blank">here</a>.</p> -->
+
             <a href="mailto:tjoel@ucsd.edu">tjoel@ucsd.edu</a>
         </footer>
     </main>
