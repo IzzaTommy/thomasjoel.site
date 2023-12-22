@@ -19,7 +19,8 @@
     --cs-section-padding: 6rem 5vw;
     --cs-text-padding: 16px;
     --cs-border: 1px solid var(--cs-border-color, lightgray);
-    --cs-border-radius: 1rem;
+    --cs-md-border-radius: 0.5rem;
+    --cs-lg-border-radius: 1rem;
     --cs-col-gap: 4vw;
     --cs-row-gap: calc(2vh + 1vw);
     --cs-svg-length: 100px;
@@ -41,8 +42,10 @@ body[data-theme='dark'] {
     --cs-quarternary-color: #404040;
     --cs-transition-color: #181818;
 
-    --cs-primary-text-color: #D0D0D0;
-    --cs-secondary-text-color: #D0D0D0;
+    /* --cs-primary-text-color: #D0D0D0;
+    --cs-secondary-text-color: #D0D0D0; */
+    --cs-primary-text-color: #E0E0E0;
+    --cs-secondary-text-color: #E0E0E0;
 
     --cs-hover-color: #202020;
     --cs-border-color: transparent;
@@ -168,14 +171,14 @@ h2 {
 h3 {
     margin: 0;
 
-    color: var(--cs-secondary-text-color);
+    color: var(--cs-secondary-text-color, black);
 
     font-style: normal;
     font-weight: normal;
 }
 
 svg {
-    fill: var(--cs-secondary-text-color);
+    fill: var(--cs-secondary-text-color, black);
 }
 
 #landing {
@@ -189,12 +192,12 @@ svg {
 }
 
 #aboutme {
-    background-image: linear-gradient(180deg, var(--cs-transition-color), var(--cs-tertiary-color, cornflowerblue));
+    background-image: linear-gradient(180deg, var(--cs-transition-color, black), var(--cs-tertiary-color, steelblue));
     color: var(--cs-primary-text-color, white);
 }
 
 #skills, footer {
-    background-color: var(--cs-tertiary-color, cornflowerblue);
+    background-color: var(--cs-tertiary-color, steelblue);
     color: var(--cs-primary-text-color, white);
 }
 
@@ -250,7 +253,7 @@ header > nav > label > svg {
     width: var(--cs-nav-item-length);
     height: var(--cs-nav-item-length);
     border: var(--cs-border);
-    border-radius: 0.5rem;
+    border-radius: var(--cs-md-border-radius);
     padding: 4px;
 }
 
@@ -312,7 +315,7 @@ header > nav > ul > li > a:hover {
     box-sizing: border-box;
     width: 800px;
     border: var(--cs-border);
-    border-radius: var(--cs-border-radius);
+    border-radius: var(--cs-lg-border-radius);
     padding: var(--cs-text-padding);
     margin: 0;
 
@@ -330,58 +333,94 @@ header > nav > ul > li > a:hover {
     flex-flow: column nowrap;
     width: var(--cs-card-width);
     border: var(--cs-border);
-    border-radius: var(--cs-border-radius);
+    border-radius: var(--cs-lg-border-radius);
 }
 
 #projects > div > div > h3 {
     padding: var(--cs-text-padding);
-    border-radius: var(--cs-border-radius) var(--cs-border-radius) 0 0;
+    border-bottom: var(--cs-border);
+    border-radius: var(--cs-lg-border-radius) var(--cs-lg-border-radius) 0 0;
 
     background-color: var(--cs-quarternary-color, white);
 
     font-size: var(--cs-md-font-size);
 }
 
-#projects > div > div > p {
+#projects > div > div > div {
+    display: flex;
+    flex-flow: column nowrap;
     flex-grow: 1;
+    row-gap: var(--cs-text-padding);
     padding: var(--cs-text-padding);
-    border-radius: 0 0 var(--cs-border-radius) var(--cs-border-radius);
+    border-radius: 0 0 var(--cs-lg-border-radius) var(--cs-lg-border-radius);
+}
+
+#projects > div > div > div > p {
+    visibility: hidden;
+
     margin: 0;
 
-    color: transparent;
+    color: var(--cs-primary-text-color, white);
 
     line-height: var(--cs-md-ln-height);
 }
 
-#projects > div > #proj-1 > p {
-    background-image: url('/assets/previews/CSE_134B_Website_Preview.webp');
-    background-size: cover;
-    background-position: top center;
+#projects > div > div > div > p:nth-of-type(2) {
+    flex-grow: 1;
 }
 
-#projects > div > #proj-1:hover > p {
-    color: var(--cs-primary-text-color, white);
+#projects > div > div:hover > div > p, #projects > div > div:hover > div > a {
+    visibility: visible;
+}
+
+#projects > div > div > div > a {
+    visibility: hidden;
+
+    box-sizing: border-box;
+    width: fit-content;
+    padding: calc(0.15 * var(--cs-text-padding));
+    border: var(--cs-border);
+    border-radius: var(--cs-md-border-radius);
+
+    background-color: var(--cs-quarternary-color, white);
+    line-height: 0;
+}
+
+#projects > div > div > div > a:hover {
+    background-color: var(--cs-hover-color, lightgray);
+}
+
+#projects > div > div > div > a > svg {
+    width: calc(0.4 * var(--cs-svg-length));
+    height: calc(0.4 * var(--cs-svg-length));
+}
+
+#projects > div > #proj-1 > div {
+    background-image: url('/assets/previews/CSE_134B_Website_Preview.webp');
+    background-position: top center;
+    background-size: cover;
+}
+
+#projects > div > #proj-1:hover > div {
     background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_134B_Website_Preview.webp');
 }
 
-#projects > div > #proj-2 > p {
+#projects > div > #proj-2 > div {
     background-image: url('/assets/previews/CSE_135_Website_Preview.webp');
     background-size: cover;
 }
 
-#projects > div > #proj-2:hover > p {
-    color: var(--cs-primary-text-color, white);
+#projects > div > #proj-2:hover > div {
     background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/CSE_135_Website_Preview.webp');
 }
 
-#projects > div > #proj-3 > p {
+#projects > div > #proj-3 > div {
     background-image: url('/assets/previews/RoommateHub_Preview.webp');
-    background-size: cover;
     background-position: top center;
+    background-size: cover;
 }
 
-#projects > div > #proj-3:hover > p {
-    color: var(--cs-primary-text-color, white);
+#projects > div > #proj-3:hover > div {
     background-image: linear-gradient(var(--cs-mask-color, black), var(--cs-mask-color, black)), url('/assets/previews/RoommateHub_Preview.webp');
 }
 
@@ -391,7 +430,7 @@ header > nav > ul > li > a:hover {
     width: var(--cs-card-width);
     padding: var(--cs-text-padding);
     border: var(--cs-border);
-    border-radius: var(--cs-border-radius);
+    border-radius: var(--cs-lg-border-radius);
     margin: 0;
     
     background-color: var(--cs-quarternary-color, white);
@@ -444,7 +483,7 @@ header > nav > ul > li > a:hover {
     width: 100px;
     padding: var(--cs-text-padding);
     border: var(--cs-border);
-    border-radius: var(--cs-border-radius);
+    border-radius: var(--cs-lg-border-radius);
 
     background-color: var(--cs-quarternary-color, white);
     color: var(--cs-secondary-text-color, black);
