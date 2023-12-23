@@ -56,6 +56,10 @@ body[data-theme='dark'] {
 
 }
 
+/* *:focus {
+    outline: 2px solid salmon;
+} */
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -159,7 +163,8 @@ section > div {
 }
 
 h2 {
-    margin: 0 0 3rem;
+    width: fit-content;
+    margin: 0 auto 3rem;
 
     font-family: 'Monaco', 'Lucida Console', 'Georgia', 'Times New Roman';
     font-size: calc(2.5rem + 2vw);
@@ -289,7 +294,7 @@ header > nav > ul > li > a:hover {
 
 /* LANDING SECTION */
 #landing > h2 {
-    margin: 45vh 0 0;
+    margin: 45vh auto 0;
 
     animation: fadeIn 1s;
 }
@@ -426,7 +431,8 @@ header > nav > ul > li > a:hover {
 }
 
 #skills > div > div > h3 {
-    margin: 0 0 var(--cs-text-padding);
+    width: fit-content;
+    margin: 0 auto var(--cs-text-padding);
 
     font-size: var(--cs-lg-font-size);
 }
@@ -498,7 +504,8 @@ footer {
 }
 
 footer > p {
-    margin: 0 0 var(--cs-text-padding);
+    width: fit-content;
+    margin: 0 auto var(--cs-text-padding);
 }
 
 footer > a {
