@@ -56,10 +56,6 @@ body[data-theme='dark'] {
 
 }
 
-/* *:focus {
-    outline: 2px solid salmon;
-} */
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
