@@ -1,3 +1,4 @@
+/* VARIABLES */
 :root {
     /* cs stands for custom */
     --cs-primary-color: #F2F2F2;
@@ -42,8 +43,6 @@ body[data-theme='dark'] {
     --cs-quarternary-color: #404040;
     --cs-transition-color: #181818;
 
-    /* --cs-primary-text-color: #D0D0D0;
-    --cs-secondary-text-color: #D0D0D0; */
     --cs-primary-text-color: #E0E0E0;
     --cs-secondary-text-color: #E0E0E0;
 
@@ -53,7 +52,6 @@ body[data-theme='dark'] {
     --cs-border: 1px solid var(--cs-border-color, lightgray);
 
     --cs-landing-background: url('/assets/backgrounds/Dark Firewatch.webp');
-
 }
 
 @keyframes fadeIn {
@@ -133,7 +131,7 @@ body[data-theme='dark'] {
 
 /* GENERAL */
 html {
-    font-family: 'Verdana', 'Arial', 'Helvetica', 'Times New Roman';
+    font-family: 'Verdana', 'Arial', sans-serif;
 
     scroll-behavior: smooth;
 }
@@ -162,7 +160,7 @@ h2 {
     width: fit-content;
     margin: 0 auto 3rem;
 
-    font-family: 'Monaco', 'Lucida Console', 'Georgia', 'Times New Roman';
+    font-family: 'Monaco', 'Courier New', Courier, monospace;
     font-size: calc(2.5rem + 2vw);
     font-style: normal;
     font-weight: bold;
