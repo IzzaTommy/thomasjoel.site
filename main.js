@@ -33,13 +33,13 @@ function themeHandler()
         if (e.currentTarget.checked === true)
         {
             document.body.setAttribute('data-theme', 'dark');
-            icon.setAttribute('href', '/assets/icons/moon-solid.svg#moon-solid');
+            icon.setAttribute('href', 'assets/icons/moon-solid.svg#moon-solid');
             localStorage.setItem('theme', 'dark');
         }
         else
         {
             document.body.setAttribute('data-theme', 'light');
-            icon.setAttribute('href', '/assets/icons/sun-solid.svg#sun-solid');
+            icon.setAttribute('href', 'assets/icons/sun-solid.svg#sun-solid');
             localStorage.setItem('theme', 'light');
         }
     }
@@ -56,7 +56,7 @@ function themeHandler()
         if (theme === 'dark')
         {
             document.body.setAttribute('data-theme', 'dark');
-            icon.setAttribute('href', '/assets/icons/moon-solid.svg#moon-solid');
+            icon.setAttribute('href', 'assets/icons/moon-solid.svg#moon-solid');
             checkbox.checked = true;
         }
     }
