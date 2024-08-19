@@ -32,7 +32,7 @@
     --cs-lg-ln-height: 2.2rem;
     --cs-nav-item-length: 32px;
 
-    --cs-landing-background: url('assets/backgrounds/Blue Firewatch.webp');
+    --cs-landing-background: url('assets/backgrounds/Blue Firewatch.webp'), url('assets/backgrounds/Blue Firewatch.jpg');
 }
 
 /* dark mode variables will replace the ones previously defined */
@@ -51,7 +51,7 @@ body[data-theme='dark'] {
 
     --cs-border: 1px solid var(--cs-border-color, lightgray);
 
-    --cs-landing-background: url('assets/backgrounds/Dark Firewatch.webp');
+    --cs-landing-background: url('assets/backgrounds/Dark Firewatch.webp'), url('assets/backgrounds/Dark Firewatch.jpg');
 }
 
 @keyframes fadeIn {
